@@ -1,21 +1,65 @@
 html,
 body    {
     width: 100%;
+    
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    
+}
+
+.lotto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
     
 }
 
 .number-generator {
     width: 300px;
     height: 300px;
-    gap: 1em;
     display: flex;
-    flex-direction: column;
+    gap: .5em;
     justify-content: center;
     align-items: center;
+    
+   
+}
+
+.number-generator > .bonusNumber {
+    /*
+    border: .1em solid red;
+    border-radius: 50px;
+    padding: .1em;
+    
+    background-color: red;
+    */
+    color: red;
+    
+   
+}
+
+.lotto-container {
+    
+
     border: .1em solid lightgrey;
+}
+
+.btn {
+    width: 120px;
+    height: 50px;
+    color: white;
+    border: none;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    position: relative;
+    font-weight: 900;
+    font-size: larger;
+    word-spacing: .3em;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: red;
 }
