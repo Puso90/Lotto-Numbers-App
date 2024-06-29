@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lotto Numbers</title>
+    <link rel="stylesheet" href="numbers.css">
+   
+  </head>
+
+  <body>
+
+    <div>
+      <h1>Lotto Numbers</h1>
+    </div>
+
+
+    <div class="number-generator">
+      <h1 id="number"></h1>
+      <button class="btn" onclick="hello()">GENERATE</button>
+    </div>
+
+
+
+
+
+</body>
+
+	<script>
+
+let number = document.getElementById('number');
+       
+
+            function hello(){
+              let randomNumber = Math.floor( Math.random() * 49 ) + 1
+
+                number.innerHTML = randomNumber;
+
+                
+                
+            }
+
+
+  </script>
+  
+</html>
