@@ -1,6 +1,6 @@
 html,
 body    {
-    width: 100%;
+    width: 100%; 
     
     display: flex;
     flex-direction: column;
@@ -55,11 +55,62 @@ body    {
     padding: 1em;
     display: flex;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     position: relative;
     font-weight: 900;
     font-size: larger;
-    word-spacing: .3em;
+    word-spacing: .2em;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: red;
+}
+
+.btn:hover {
+    color: black;
+
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#footer-container   {
+    padding: .5em;
+    color: lightgrey;
+}
+
+#info-socials    {
+    display: flex;
+    
+    flex-direction: column;
+    background-color: none;
+}
+
+.socials    {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+
+    color: lightgrey;
+    gap: .5em;
+    background-color: none;
+}
+
+.details    {
+    display: flex;
+    list-style: none;
+    justify-items: start;
+    color: lightgrey;
+    gap: 10px;
+    background-color: none;
+}
+
+a {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+a:hover {
+    color: red;
 }

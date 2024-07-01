@@ -5,66 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lotto Numbers</title>
-    <script src="numbers.js" type="module" ></script>
+    
+    <script type="text/javascript" src="/Users/puso/Documents/Test Websites/Lotto Number Generator/js/numbers.js"></script>
+    
     <link rel="stylesheet" href="numbers.css">
    
+    
   </head>
 
   <body>
 
 
 
-  <div class="lotto-container">
-    <div>
-      <h1>Lotto Numbers</h1>
+    <div class="lotto-container">
+      <div>
+        <h1>Lotto Numbers</h1>
+      </div>
+
+
+      <div class="number-generator">
+        <h1 id="number1"></h1>
+        <h1 id="number2"></h1>
+        <h1 id="number3"></h1>
+        <h1 id="number4"></h1>
+        <h1 id="number5"></h1>
+        <h1 id="number6"></h1>
+        <h1 id="number7" class="bonusNumber"></h1>
+      </div>
+
+        <div>
+        <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
+        </div>
+
     </div>
 
+    <footer>
 
-    <div class="number-generator">
-      <h1 id="number1"></h1>
-      <h1 id="number2"></h1>
-      <h1 id="number3"></h1>
-      <h1 id="number4"></h1>
-      <h1 id="number5"></h1>
-      <h1 id="number6"></h1>
-      <h1 id="number7" class="bonusNumber"></h1>
+      <div id="footer-container" class="foot-contain" >
+        &#169 PUSO 2024 - 2140 | Beta Version 0.00001v
+      </div>
 
+      <div id="info-socials">
+        <ul class="socials">
+          <li><a href="">Instagram</a></li>
+          <li><a href="https://discord.com/channels/@pusoramoroa_26690">Discord</a></li>
+          <li><a href="https://github.com/Puso90">Github</a></li>
+          <li><a href="">X</a></li>
+        </ul>
+      </div>
+
+      <div id="info-details">
+        <ul class="details">
+          <li><a href="">Disclaimer</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Whitepaper</a></li>
+        </ul>
+      </div>
       
-    </div>
-      <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
-  </div>
-
-
+    </footer>
+  
 
 
 </body>
 
-	<script>
+	
+    <script>
 
-  let number = document.getElementById('number1');
-  let bonusNumber = document.getElementsByClassName('bonusNumber')
-       
-        function spin() {
-          let randomNumber = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber2 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber3 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber4 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber5 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber6 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber7 = Math.floor(Math.random() * 49 ) + 1
+    let number = document.getElementById('number1');
+    let bonusNumber = document.getElementsByClassName('bonusNumber')
+        
+          function spin() {
+            let randomNumber = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber2 = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber3 = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber4 = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber5 = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber6 = Math.floor(Math.random() * 49 ) + 1
+            let randomNumber7 = Math.floor(Math.random() * 49 ) + 1
 
-          number1.innerHTML = randomNumber;
-          number2.innerHTML = randomNumber2;
-          number3.innerHTML = randomNumber3;
-          number4.innerHTML = randomNumber4;
-          number5.innerHTML = randomNumber5;
-          number6.innerHTML = randomNumber6;
-          number7.innerHTML = randomNumber7;
+            number1.innerHTML = randomNumber;
+            number2.innerHTML = randomNumber2;
+            number3.innerHTML = randomNumber3;
+            number4.innerHTML = randomNumber4;
+            number5.innerHTML = randomNumber5;
+            number6.innerHTML = randomNumber6;
+            number7.innerHTML = randomNumber7;
 
-        }
+          }
 
-           
+            
 
-  </script>
+    </script>
   
 </html>
