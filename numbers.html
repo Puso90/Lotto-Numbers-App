@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lotto Numbers</title>
     
-    <script type="text/javascript" src="/Users/puso/Documents/Test Websites/Lotto Number Generator/js/numbers.js"></script>
-    
     <link rel="stylesheet" href="numbers.css">
    
+    <!-- added a js file and put defer in the script tag so that the javascript will only run when the DOM is loaded -->
+    <script src="numbers.js" defer></script>
     
   </head>
 
@@ -113,34 +113,5 @@
 
 </body>
 
-	<script>
-
-  let number = document.getElementById('number1');
-  let bonusNumber = document.getElementsByClassName('bonusNumber')
-       
-        function spin() {
-          let randomNumber = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber2 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber3 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber4 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber5 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber6 = Math.floor(Math.random() * 49 ) + 1
-          let randomNumber7 = Math.floor(Math.random() * 49 ) + 1
-
-          number1.innerHTML = randomNumber;
-          number2.innerHTML = randomNumber2;
-          number3.innerHTML = randomNumber3;
-          number4.innerHTML = randomNumber4;
-          number5.innerHTML = randomNumber5;
-          number6.innerHTML = randomNumber6;
-          number7.innerHTML = randomNumber7;
-
-        }
- 
-
-
-
-
-  </script>
   
 </html>
