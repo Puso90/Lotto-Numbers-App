@@ -1,10 +1,14 @@
 html,
 body    {
-    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     
+}
+
+:root {
+    --footer-box-shadow: 0px 1px 32px -15px rgba(18,17,17,1);
 }
 
 .lotto-container {
@@ -54,11 +58,195 @@ body    {
     padding: 1em;
     display: flex;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     position: relative;
     font-weight: 900;
     font-size: larger;
-    word-spacing: .3em;
+    word-spacing: .2em;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: red;
 }
+
+.btn:hover {
+    color: black;
+
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#footer-container   {
+    padding: .5em;
+    color: lightgrey;
+}
+
+#info-socials    {
+    display: flex;
+    
+    flex-direction: column;
+    background-color: none;
+}
+
+#info-details {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.socials    {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+
+    color: lightgrey;
+    gap: .5em;
+    background-color: none;
+}
+
+.details    {
+    display: flex;
+    list-style: none;
+    justify-items: start;
+    color: lightgrey;
+    gap: 10px;
+    background-color: none;
+}
+
+a {
+    text-decoration: none;
+    color: lightgrey;
+}
+
+a:hover {
+    color: red;
+}
+
+
+/* TEST HOVER POPUP */
+
+
+  
+    .icon:hover .popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+    margin-right: 200px;
+  }
+  
+  .popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+    
+  }
+
+  .popup > p {
+    color: black;
+    
+  }
+  
+  @keyframes in-animation {
+    from { opacity: 0; }
+    to   { opacity: 6; }
+  }
+
+    .icon .popup {
+    margin-left: -109px;
+    justify-content: flex-start;
+
+  }
+
+  /* img in about 
+  .image-container {
+    max-width: 200px;
+    max-height: 100px;
+    background-color: blueviolet;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+    object-fit: contain;
+  }
+*/
+  /*Disclaimer-popup*/
+
+  .icon1:hover .disclaimer-popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+    
+  }
+
+
+  .disclaimer-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+  }
+
+  
+
+  .disclaimer-popup > p {
+    color: black;
+  }
+
+  .icon1 .disclaimer-popup {
+    margin-left: -28px;
+    justify-content: flex-start;
+  }
+
+  span {
+    color: red;
+  }
+
+
+  /*Whitepaper-popup*/
+
+  .icon3:hover .whitepaper-popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+  }
+
+  .whitepaper-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+  }
+
+  .whitepaper-popup > p {
+    color: black;
+  }
+
+  .icon3 .whitepaper-popup {
+    margin-left: -160px;
+    justify-content: flex-start;
+  }
+
+  

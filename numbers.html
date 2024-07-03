@@ -5,39 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lotto Numbers</title>
-    <!-- added a js file and put defer in the script tag so that the javascript will only run when the DOM is loaded -->
-    <script src="numbers.js" defer></script>
+    
     <link rel="stylesheet" href="numbers.css">
    
+    <!-- added a js file and put defer in the script tag so that the javascript will only run when the DOM is loaded -->
+    <script src="numbers.js" defer></script>
+    
   </head>
 
   <body>
 
 
 
-  <div class="lotto-container">
-    <div>
-      <h1>Lotto Numbers</h1>
+    <div class="lotto-container">
+      <div>
+        <h1>Lotto Numbers</h1>
+      </div>
+
+
+      <div class="number-generator">
+        <h1 id="number1"></h1>
+        <h1 id="number2"></h1>
+        <h1 id="number3"></h1>
+        <h1 id="number4"></h1>
+        <h1 id="number5"></h1>
+        <h1 id="number6"></h1>
+        <h1 id="number7" class="bonusNumber"></h1>
+      </div>
+
+        <div>
+        <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
+        </div>
+
     </div>
 
+    <footer>
 
-    <div class="number-generator">
-      <h1 id="number1"></h1>
-      <h1 id="number2"></h1>
-      <h1 id="number3"></h1>
-      <h1 id="number4"></h1>
-      <h1 id="number5"></h1>
-      <h1 id="number6"></h1>
-      <h1 id="number7" class="bonusNumber"></h1>
+      <div id="footer-container" class="foot-contain" >
+        &#169 PUSO 2024 - 2140 | Beta Version 0.00001v
+      </div>
 
+      <div id="info-socials">
+        <ul class="socials">
+          <li><a href="">Instagram</a></li>
+          <li><a href="https://discord.com/channels/@pusoramoroa_26690">Discord</a></li>
+          <li><a href="https://github.com/Puso90">Github</a></li>
+          <li><a href="">X</a></li>
+        </ul>
+      </div>
+
+      <div id="info-details" class="details-container">
+        <ul class="details ">
+          <li class="icon1"><a href="">Disclaimer</a>
+            <div class="disclaimer-popup">
+              <p> <b>Disclaimer:</b> This app is not financial advice in any shape or form. 
+                It is for the user's own discretionay purposes.
+                It in no way, states or suggests that lottery numbers generated on this app will amount to winning the lotto in South Africa.
+                <br><br><span>If lotto numbers are in deed as random as assumed, it could somehow generate close or similar to a winning ticket(unlikely but probable).</span> 
+                <br><br>
+                It also has no association with any organisations 
+                running and or involved in any national gambling operator.
+                We highly advice users to take this app as it is, 
+                which is a nascent idea to mathematically generate random 
+                numbers for entertainment purposes.
+                <br><br>
+                <b>Technical:</b> This app uses an algorithm that specifically 
+                generates quick lottery numbers in South Africa.
+              </p>
+            </div>
+          </li>
+          <li class="icon"><a href="">About</a>
+            <div class="popup">
+              <!--
+              <div class="image-container">
+                <img src="/images/Money-Grab-Chance-Card-1.jpg" >
+              </div> 
+              --> 
+                <p> In <i>Monopoly</i>, there is this thing called chance.  
+                    As in the game, such is life. 
+                    We all get a chance sometimes, however our job is to create chance sebaka(for longer).
+                </p>
+            </div>
+          </li>  
+          <li class="icon3"><a href="">Whitepaper</a>
+            <div class="whitepaper-popup">
+              <p> <b>Abstract:</b>  A purely unconditional use of random number generator for lotto players.
+                  This is to create an unlinked to any lotto and gambling entity and an untainted application 
+                  that can be used or not by people trying to generate some chance.
+                  
+                <br><br>
+                  Download full <i>Whitepaper</i> at: <span>ramoroa.co.za</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
       
-    </div>
-      <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
-  </div>
+    </footer>
 
 
+  
+      
+      
+    
+  
 
 
 </body>
+
   
 </html>
