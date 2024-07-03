@@ -8,6 +8,10 @@ body    {
     
 }
 
+:root {
+    --footer-box-shadow: 0px 1px 32px -15px rgba(18,17,17,1);
+}
+
 .lotto-container {
     display: flex;
     flex-direction: column;
@@ -87,6 +91,12 @@ footer {
     background-color: none;
 }
 
+#info-details {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
 .socials    {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -114,3 +124,130 @@ a {
 a:hover {
     color: red;
 }
+
+
+/* TEST HOVER POPUP */
+
+
+  
+    .icon:hover .popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+    margin-right: 200px;
+  }
+  
+  .popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+    
+  }
+
+  .popup > p {
+    color: black;
+    
+  }
+  
+  @keyframes in-animation {
+    from { opacity: 0; }
+    to   { opacity: 6; }
+  }
+
+    .icon .popup {
+    margin-left: -109px;
+    justify-content: flex-start;
+
+  }
+
+  /* img in about 
+  .image-container {
+    max-width: 200px;
+    max-height: 100px;
+    background-color: blueviolet;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+    object-fit: contain;
+  }
+*/
+  /*Disclaimer-popup*/
+
+  .icon1:hover .disclaimer-popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+    
+  }
+
+
+  .disclaimer-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+  }
+
+  
+
+  .disclaimer-popup > p {
+    color: black;
+  }
+
+  .icon1 .disclaimer-popup {
+    margin-left: -28px;
+    justify-content: flex-start;
+  }
+
+  span {
+    color: red;
+  }
+
+
+  /*Whitepaper-popup*/
+
+  .icon3:hover .whitepaper-popup {
+    opacity: 6;
+    display: block;
+    width: 250px;
+  }
+
+  .whitepaper-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+  }
+
+  .whitepaper-popup > p {
+    color: black;
+  }
+
+  .icon3 .whitepaper-popup {
+    margin-left: -160px;
+    justify-content: flex-start;
+  }
+
+  

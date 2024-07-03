@@ -54,47 +54,93 @@
         </ul>
       </div>
 
-      <div id="info-details">
-        <ul class="details">
-          <li><a href="">Disclaimer</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Whitepaper</a></li>
+      <div id="info-details" class="details-container">
+        <ul class="details ">
+          <li class="icon1"><a href="">Disclaimer</a>
+            <div class="disclaimer-popup">
+              <p> <b>Disclaimer:</b> This app is not financial advice in any shape or form. 
+                It is for the user's own discretionay purposes.
+                It in no way, states or suggests that lottery numbers generated on this app will amount to winning the lotto in South Africa.
+                <br><br><span>If lotto numbers are in deed as random as assumed, it could somehow generate close or similar to a winning ticket(unlikely but probable).</span> 
+                <br><br>
+                It also has no association with any organisations 
+                running and or involved in any national gambling operator.
+                We highly advice users to take this app as it is, 
+                which is a nascent idea to mathematically generate random 
+                numbers for entertainment purposes.
+                <br><br>
+                <b>Technical:</b> This app uses an algorithm that specifically 
+                generates quick lottery numbers in South Africa.
+              </p>
+            </div>
+          </li>
+          <li class="icon"><a href="">About</a>
+            <div class="popup">
+              <!--
+              <div class="image-container">
+                <img src="/images/Money-Grab-Chance-Card-1.jpg" >
+              </div> 
+              --> 
+                <p> In <i>Monopoly</i>, there is this thing called chance.  
+                    As in the game, such is life. 
+                    We all get a chance sometimes, however our job is to create chance sebaka(for longer).
+                </p>
+            </div>
+          </li>  
+          <li class="icon3"><a href="">Whitepaper</a>
+            <div class="whitepaper-popup">
+              <p> <b>Abstract:</b>  A purely unconditional use of random number generator for lotto players.
+                  This is to create an unlinked to any lotto and gambling entity and an untainted application 
+                  that can be used or not by people trying to generate some chance.
+                  
+                <br><br>
+                  Download full <i>Whitepaper</i> at: <span>ramoroa.co.za</span>
+              </p>
+            </div>
+          </li>
         </ul>
       </div>
       
     </footer>
+
+
+  
+      
+      
+    
   
 
 
 </body>
 
-	
-    <script>
+	<script>
 
-    let number = document.getElementById('number1');
-    let bonusNumber = document.getElementsByClassName('bonusNumber')
-        
-          function spin() {
-            let randomNumber = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber2 = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber3 = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber4 = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber5 = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber6 = Math.floor(Math.random() * 49 ) + 1
-            let randomNumber7 = Math.floor(Math.random() * 49 ) + 1
+  let number = document.getElementById('number1');
+  let bonusNumber = document.getElementsByClassName('bonusNumber')
+       
+        function spin() {
+          let randomNumber = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber2 = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber3 = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber4 = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber5 = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber6 = Math.floor(Math.random() * 49 ) + 1
+          let randomNumber7 = Math.floor(Math.random() * 49 ) + 1
 
-            number1.innerHTML = randomNumber;
-            number2.innerHTML = randomNumber2;
-            number3.innerHTML = randomNumber3;
-            number4.innerHTML = randomNumber4;
-            number5.innerHTML = randomNumber5;
-            number6.innerHTML = randomNumber6;
-            number7.innerHTML = randomNumber7;
+          number1.innerHTML = randomNumber;
+          number2.innerHTML = randomNumber2;
+          number3.innerHTML = randomNumber3;
+          number4.innerHTML = randomNumber4;
+          number5.innerHTML = randomNumber5;
+          number6.innerHTML = randomNumber6;
+          number7.innerHTML = randomNumber7;
 
-          }
+        }
+ 
 
-            
 
-    </script>
+
+
+  </script>
   
 </html>
