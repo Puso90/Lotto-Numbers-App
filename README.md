@@ -5,7 +5,7 @@ Get random Numbers and in future most probable outcomes from random games
 I wanted to make a User Interface that was as simple as possible.  A beta version that was as basic as possible but had the software/ coding to satisfy a basic solution.
 
 # Problem:
-Create a simple mobile / web app that allows users to generate random lottery numbers.  Seven numbers, which are describes as six numbers plus a bonus number.
+Create a simple mobile / web app that allows users to generate random lottery numbers.  Seven numbers, which are describes as six numbers plus a bonus number. 
 
 # Solution:
 1. HTML/CSS: basic user interface.  Not much design and visual graphics.  Plain and simple.
@@ -22,4 +22,6 @@ Create a simple mobile / web app that allows users to generate random lottery nu
       3. The link share on social media should appear as a card with Lucky Lotto Number Image, branding, message and number visible. 
 
 4. Newsletter signups/ option for marketing, engagement and attraction purposes.
+
+//Must not show on published site.
 
