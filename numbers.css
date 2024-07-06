@@ -1,4 +1,4 @@
-html,
+html,html,
 body    {
 
     display: flex;
@@ -67,10 +67,19 @@ body    {
     background-color: red;
 }
 
-.btn:hover {
+@media screen and (min-width: 1400px) {
+ .btn:hover {
     color: black;
+  }
+
+  a:hover {
+    color: red;
+  }
+  
 
 }
+
+
 
 footer {
     display: flex;
@@ -120,9 +129,9 @@ a {
     color: lightgrey;
 }
 
-a:hover {
-    color: red;
-}
+
+
+
 
 
 /* TEST HOVER POPUP */
@@ -248,5 +257,3 @@ a:hover {
     margin-left: -160px;
     justify-content: flex-start;
   }
-
-  
