@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Lotto Numbers</title>
+    <title>LOOK UP..</title>
     
     <!-- added a js file and put defer in the script tag so that the javascript will only run when the DOM is loaded -->
     <script src="js/numbers.js" defer></script>
@@ -14,11 +14,14 @@
   </head>
 
   <body>
-
-
+<!--
+    <div class="app-heading">
+      LOOK UP
+    </div>
+-->
 
     <div class="lotto-container">
-      <div>
+      <div id="app-heading">
         <h1>Lotto Numbers</h1>
       </div>
 
@@ -33,17 +36,27 @@
         <h1 id="number7" class="bonusNumber"></h1>
       </div>
 
-        <div>
-        <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
-        </div>
+    <div id="save-share">
+      
+      <i class="fal fa-save">
+        <img src="images/icons/save.svg">
+      </i>
+      <i class="far fa-share-alt">
+        <img src="images/icons/share-svg.svg">
+      </i>
+    </div>
+
+    
+    
+
+      <div>
+      <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
+      </div>
 
     </div>
 
     <footer>
 
-      <div id="footer-container" class="foot-contain" >
-        &#169 PUSO 2024 - 2140 | Beta Version 0.00001v
-      </div>
 
       <div id="info-socials">
         <ul class="socials">
@@ -88,7 +101,6 @@
                 <p>
                   <i>Created by:</i> PUSO®<br>
                   2024 | Cape Town, South Africa
-                 
 
                 </p>
             </div>
@@ -122,10 +134,14 @@
             </div>
           </li>
         </ul>
+
+        <div id="footer-container" class="foot-contain" >
+          &#169 PUSO 2024 - 2140 | Beta Version 0.00001v
+        </div>
+
       </div>
       
     </footer>
-
 
 </body>
 
