@@ -21,7 +21,7 @@ saveBtn.addEventListener('click', () => {
     listContainer.appendChild(saved);
 // Hmm... Tricky but it's coming!
 */
-    window.alert('Save button, coming sson!'); // Opens window for save button
+    window.alert('Save button, coming soon!'); // Opens window for save button
     console.log(`saveing...`); // save icon works
     console.log(); // Trying to value of h1's in mother element
 
