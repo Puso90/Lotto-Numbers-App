@@ -5,27 +5,38 @@ const shareNum = document.querySelector('.shareBtn');
 //const storing = document.getElementById('storing');
 const listContainer = document.querySelector('ul');
 //const numbersGenerated = document.querySelector('.number-generator');
+const popUp2 = document.getElementsByClassName('.icon2');
+
+
+/*______ THE PROCESS - SAVE SHARE ______*/
 
 // Save Button, saves the number generated
 saveBtn.addEventListener('click', () => {
-   /*     
-    if (saved === numbers.slice(0,7)) {
-        window.alert('Cannot save what you have not generated..!')
+
+//If statement not working - MUST FIX - No save if numbers are not generated!
+    if (!numbers) {
+        window.alert('Coming soon!')
         return;
     }
-    */
 
     const saved = document.createElement('li');
         saved.textContent = numbers.slice(0,7).join(' ,  ');
         listContainer.appendChild(saved); 
+        saved.classList.add('savedNumbers')
+        localStorage.setItem(localStorage.length, numbers.slice(0,7).join(' ,  ') )
+
         
     saved.addEventListener('click', () => {
         listContainer.removeChild(saved);
+       
     }) 
 
     // window.alert('Save button, coming soon!'); 
     console.log(`saveing...`); // save icon works
 });
+
+
+/*______ SHARE BUTTON => TO THE WORLD ______*/
 
 //Listen to share icon clicks
 shareNum.addEventListener('click', () => {
@@ -39,6 +50,18 @@ shareNum.addEventListener('click', () => {
     console.log(`sharing...`);
 });
 
+/* INFORM LISTS POPUP */
+
+
+
+// Toggle visibility on click
+// NOT WORKING - ERROR!!!!!!!!
+function aboutPopUp() {
+    document.getElementsByClassName('icon, popup').style.display = 'block';
+}
+    //Strange must work on this more
+
+
 
 //_________________________________________________________________________________________________________
 // ROADMAP:
@@ -50,6 +73,7 @@ shareNum.addEventListener('click', () => {
         6.  Must not be able to save same or duplicate numbers
         7.  Saving numbers generated must only be for users who pay subscription
         8.  Add a modal close (x) and click to open modal for mobile
+        10. If statement not working - MUST FIX - No save if numbers are not generated!
 
 //_________________________________________________________________________________________________________
 // DONE SECTION
@@ -76,3 +100,25 @@ ________________________________________________________________________________
            // Creator: Puso Moses Ramoroa
 //_________________________________________________________________________________________________________
            
+
+/*__________________________________________________________________________________________________________
+
+// TRIED AND TESTED 
+
+// Considered to give the locale storage saved array by date or time
+// It's giving value over same time without refreshing time
+
+    1.      const date = new Date();
+
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let second = date.getSeconds();
+
+            // This arrangement can be altered based on how we want the date's format to appear.
+            let currentDate = `${day}-${month}-${year}-${second}`;
+            console.log(currentDate); // "17-6-2022"
+
+    2.      Must probably consider using actual unique ID rather 
+            then linking that to a date saved of day-month-year
+_____________________________________________________________________________________________________________*/
