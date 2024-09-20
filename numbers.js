@@ -1,10 +1,10 @@
-let number1 = document.getElementById('number1');
-let number2 = document.getElementById('number2');
-let number3 = document.getElementById('number3');
-let number4 = document.getElementById('number4');
-let number5 = document.getElementById('number5');
-let number6 = document.getElementById('number6');
-let number7 = document.getElementById('number7');
+const number1 = document.getElementById('number1');
+const number2 = document.getElementById('number2');
+const number3 = document.getElementById('number3');
+const number4 = document.getElementById('number4');
+const number5 = document.getElementById('number5');
+const number6 = document.getElementById('number6');
+const number7 = document.getElementById('number7');
 
 // Create an array from 1 to 52
 // Array.from initialises an array from an iterable object
