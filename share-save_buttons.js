@@ -1,66 +1,102 @@
 
-//Fetching elements and saving as variables
+// Fetching elements and saving as variables
 const saveBtn = document.querySelector('.saveBtn');
 const shareNum = document.querySelector('.shareBtn');
-//const storing = document.getElementById('storing');
 const listContainer = document.querySelector('ul');
-//const numbersGenerated = document.querySelector('.number-generator');
 const show = document.querySelector('.savedNumbers');
 
 
-/*
-const date = new Date();
+/* -- Saving and Loading Numbers*/
 
-            let day = date.getDate();
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-            let second = date.getSeconds();
+const storageKey = "lotto_app";   // Key to reference data throughout App
 
-            // This arrangement can be altered based on how we want the date's format to appear.
-            let currentDate = `${day}-${month}-${year}-${second}`;
-            console.log(currentDate); // "17-6-2022"
-*/
+function saveCurrentNumbers(){
+  if (localStorage.getItem(storageKey) === null){
+    // storage does not yet exist
+    localStorage.setItem(storageKey, JSON.stringify( new Object() ));
+  };
+
+  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
+
+  const newid =  new Date().getTime();                        // create unique id value
+  data[newid] = luckyNumbers;                                 // set to our "luckyNumbers" array
+  localStorage.setItem(storageKey, JSON.stringify( data ));   // Save
+  
+  return newid;                                               // Get reference to ID
+};
+
+function deleteNumbers(obj_id){
+  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
+  delete data[obj_id];                                        // Remove object
+  localStorage.setItem(storageKey, JSON.stringify( data ));   // Save
+};
+
+// Get saved numbers from localStorage and display on UI
+function loadFromStorage(){
+  if (localStorage.getItem(storageKey) === null){
+    // storage does not yet exist - do nothing
+    return;
+  };
+
+  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
+
+  for (const [obj_id, value] of Object.entries(data)){
+    // Create list item for each numbers array
+    const display = document.createElement('li');
+    listContainer.appendChild(display);
+    display.classList.add('savedNumbers');
+    display.innerHTML = value.join(' ,  ');
+
+    // Method to remove saved luckyNumbers
+    display.addEventListener('click', () => {
+
+      listContainer.removeChild(display);
+      deleteNumbers(obj_id);
+
+    });
+    
+  };
+};
+
+loadFromStorage();    // Make sure this function is only called after DOM loaded
+
+// Save Button, saves the current number generated
+saveBtn.addEventListener('click', () => {
+
+  const obj_id = saveCurrentNumbers();   // Save to localStorage
+
+  // Add to display
+  const saved = document.createElement('li');      
+  listContainer.appendChild(saved); 
+  saved.classList.add('savedNumbers')
+  saved.innerHTML = luckyNumbers.join(' ,  ');
+
+  // Method to remove newly created luckyNumbers
+  saved.addEventListener('click', () => {
+  
+    listContainer.removeChild(saved);
+    deleteNumbers(obj_id);
+    
+  });
+
+  console.log(`saveing...`); // save icon works
+});
 
 
-/*______ THE PROCESS - SAVE SHARE ______*/
 
-// Save Button, saves the number generated
-          saveBtn.addEventListener('click', () => {
+/*______ SHARE BUTTON => TO THE WORLD ______*/
 
-              const saved = document.createElement('li');
-                
-                localStorage.setItem(localStorage.length, JSON.stringify(numbers.slice(0,7).join(' ,  ')) )
-                  listContainer.appendChild(saved); 
-                  saved.classList.add('savedNumbers')
-                  // think I need to somehow link <li>HTML to key.storage
-                  saved.innerHTML = JSON.stringify(numbers.slice(0,7).join(' ,  '));
-                  
+//Listen to share icon clicks
+shareNum.addEventListener('click', () => {
+    //Share numbers or app link on web with api
+        navigator.share({
+        url: document.URL,
+        title: document.title,
+        text: "Look up lucky lotto numbers, Boom.. Enjoy your luck!"
+      });
 
-              saved.addEventListener('click', () => {
-              
-                  listContainer.removeChild(saved);
-                  localStorage.removeItem(`${[localStorage.key([0],[1], [2], [3], [4], [5])]}`);
-                  
-              }) 
-              // window.alert('Save button, coming soon!'); 
-              console.log(`saveing...`); // save icon works
-          });
-
-
-
-          /*______ SHARE BUTTON => TO THE WORLD ______*/
-
-          //Listen to share icon clicks
-          shareNum.addEventListener('click', () => {
-              //Share numbers or app link on web with api
-                  navigator.share({
-                  url: document.URL,
-                  title: document.title,
-                  text: "Look up lucky lotto numbers, Boom.. Enjoy your luck!"
-                });
-
-              console.log(`sharing...`);
-          });
+    console.log(`sharing...`);
+});
 
 
 
