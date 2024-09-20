@@ -28,6 +28,9 @@ const lottoNumbers = Array.from(
     { length: 52 }, (_, i) => i + 1
 );
 
+// Users current lucky numbers
+let luckyNumbers;
+
 
 function fisherYatesShuffle(array) {
     // initialise a for loop where we define i as the last indedx in the array
@@ -38,29 +41,28 @@ function fisherYatesShuffle(array) {
         const j = Math.floor(Math.random() * (i + 1));
         // shuffle i and j in the array in place
         [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+    };
+};
+
+function get7LuckyNumbers(){
+    // Use Fisher-Yates shuffle to mutate the lottoNumbers array
+    fisherYatesShuffle(lottoNumbers);
+
+    return lottoNumbers.slice(0, 7);    // get first 7 numbers
+};
+
 
 function spin() {
-    // Call fisherYates function to shuffle the array
-    fisherYatesShuffle(numbers)
-
-    // Define first 7 numbers of the shuffled array
-    let randomNumber1 = numbers[0]
-    let randomNumber2 = numbers[1]
-    let randomNumber3 = numbers[2]
-    let randomNumber4 = numbers[3]
-    let randomNumber5 = numbers[4]
-    let randomNumber6 = numbers[5]
-    let randomNumber7 = numbers[6]
+    // Get new numbers
+    luckyNumbers = get7LuckyNumbers();
 
     // Set the innerhtml of our number h1's to the shuffled numbers above
-    number1.innerHTML = randomNumber1;
-    number2.innerHTML = randomNumber2;
-    number3.innerHTML = randomNumber3;
-    number4.innerHTML = randomNumber4;
-    number5.innerHTML = randomNumber5;
-    number6.innerHTML = randomNumber6;
-    number7.innerHTML = randomNumber7;
-}
+    number1.innerHTML = luckyNumbers[0];
+    number2.innerHTML = luckyNumbers[1];
+    number3.innerHTML = luckyNumbers[2];
+    number4.innerHTML = luckyNumbers[3];
+    number5.innerHTML = luckyNumbers[4];
+    number6.innerHTML = luckyNumbers[5];
+    number7.innerHTML = luckyNumbers[6];
+};
 
