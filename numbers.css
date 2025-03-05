@@ -206,7 +206,7 @@ a {
 
 
 /* TEST HOVER POPUP */
-    .icon2 .popup {
+    .icon2 .about-popup {
     opacity: 6;
     width: 250px;
     margin-right: 200px;
@@ -215,24 +215,45 @@ a {
     justify-content: flex-start;
   }
 
+  .about-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    font-size: var(--body-font-size);
+    font-family: var(--apple-font-family);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    animation: in-animation 0.25s ease;
+  }
+
+  .about-popup > p {
+    color: black;
+  }
+
 /* SCREEN SIZE HOVER - POPUP */
   @media screen and (min-width: 900px) {
-    /* About Popup */
-    .icon2:hover .popup {
+    
+    /* Disclaimer-popup */
+    .icon1:hover .disclaimer-popup {
       display: block;
     }
 
-    /* Disclaimer-popup */
-  .icon1:hover .disclaimer-popup {
-    display: block;
-  }
-  /* Whitepaper-popup */
-  .icon3:hover .whitepaper-popup {
-    display: block;
-  }
+    /* About Popup */
+    .icon2:hover .about-popup {
+      display: block;
+    }
+
+    /* Whitepaper-popup */
+    .icon3:hover .whitepaper-popup {
+      display: block;
+    }
   }
 
-
+/*
   .popup {
     max-width: 250px;
     background-color: rgb(255, 255, 255);
@@ -248,6 +269,7 @@ a {
     animation: in-animation 0.25s ease;
     
   }
+*/
 
   .popup > p {
     color: black;
@@ -274,7 +296,6 @@ a {
     height: 100%;
     margin-bottom: 15px;
     object-fit: contain;
-    
   }
 
   /*Disclaimer-popup*/
