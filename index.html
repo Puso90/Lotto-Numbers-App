@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LOOK UP..</title>
+    <title>Lotto Numbers</title>
 
     <!-- added a js file and put defer in the script tag so that the javascript will only run when the DOM is loaded -->
     <script src="numbers.js" defer></script>
@@ -39,9 +39,11 @@
       </div>
 
       <div id="save-share">
-        <div id="webshareapi" class="saveBtn"><i class="fal fa-save"><img src="save.svg"></i></div>
-        <div id="webshareapi" class="shareBtn"><i class="fal fa-share-alt"> <img src="share-svg.svg"></i></div>
+        <button type="button" id="save-btn" class="saveBtn" aria-label="Save numbers"><img src="save.svg" alt=""></button>
+        <button type="button" id="share-btn" class="shareBtn" aria-label="Share numbers"><img src="share-svg.svg" alt=""></button>
       </div>
+
+      <p id="feedback" class="feedback" aria-live="polite"></p>
 
       <!-- STORE NUMBERS UNDER GENERATED LUCKY NUMBERS -->
        <div id="storing" class="storeNumbers">
@@ -50,7 +52,7 @@
       
       <!-- BUTTON - NUMBER GENERATOR -->
       <div>
-        <button class="btn" type="button" onclick="spin()">GET LUCKY!</button>
+        <button class="btn" type="button">GET LUCKY!</button>
       </div>
 
     </div>
@@ -70,8 +72,10 @@
 
       <div id="info-details" class="details-container">
         <ul class="details ">
-          <li class="icon1"><a href="">Disclaimer</a>
-            <div class="disclaimer-popup">
+          <li class="icon1 info-item">
+            <button type="button" class="info-trigger">Disclaimer</button>
+            <div class="disclaimer-popup info-popup">
+              <button type="button" class="popup-close" aria-label="Close">&times;</button>
               <p> <b>Disclaimer:</b> This app is not financial advice in any shape or form.
                 It is for the user's own discretionay purposes.
                 It in no way, states or suggests that lottery numbers generated on this app will amount to winning the lotto in South Africa.
@@ -88,8 +92,10 @@
               </p>
             </div>
           </li>
-          <li class="icon2"><a href="">About</a>
-            <div class="about-popup">
+          <li class="icon2 info-item">
+            <button type="button" class="info-trigger">About</button>
+            <div class="about-popup info-popup">
+              <button type="button" class="popup-close" aria-label="Close">&times;</button>
               <!-- 
               <div class="image-container">
                 <img src="/images/Money-Grab-Chance-Card-1.jpg" >
@@ -106,8 +112,10 @@
               </p>
             </div>
           </li>
-          <li class="icon3"><a href="">Whitepaper</a>
-            <div class="whitepaper-popup">
+          <li class="icon3 info-item">
+            <button type="button" class="info-trigger">Whitepaper</button>
+            <div class="whitepaper-popup info-popup">
+              <button type="button" class="popup-close" aria-label="Close">&times;</button>
               <p> <b>Abstract:</b> A purely unconditional use of random number generator for lotto players.
                 This is to create an unlinked to any lotto and gambling entity and an untainted application
                 that can be used or not by people trying to generate some chance.

@@ -1,6 +1,5 @@
-html,html,
-body    {
-
+html,
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,17 +34,6 @@ body    {
   }
 }
 
-/* Name Of App Heading and Title 
-.app-heading {
-    font-size: 40px;
-    line-height: 1.1;
-    font-weight: 600;
-    letter-spacing: 0em;
-    margin: .5em 0 .5em 0;
-    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-*/
-
 #save-share {
   width: auto;
   margin: 3em;
@@ -54,10 +42,12 @@ body    {
   gap: 3em;
 }
 
-.fa-save {
-  color: red;
-  object-fit: contain;
-  position: relative;
+.saveBtn,
+.shareBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .lotto-container img {
@@ -65,21 +55,28 @@ body    {
   height: 25px;
 }
 
-/* Saved Numbers above GET LUCKY Button */
+.feedback {
+  min-height: 1.25em;
+  margin: 0 0 1em;
+  font-size: var(--font-size-small);
+  font-family: var(--apple-font-family);
+  color: #666;
+  text-align: center;
+}
+
 .savedNumbers {
   background-color: transparent;
   padding: 0.2em;
   margin-bottom: 0.5em;
   font: var(--body-font-size);
   font-family: var(--apple-font-family);
-  border: 0.1em solid 0;
+  border: 0.1em solid transparent;
+  cursor: pointer;
 }
 
-/* Removes dots from the list */
 ul > li {
   list-style: none;
 }
-  
 
 .lotto-container {
   display: flex;
@@ -87,6 +84,8 @@ ul > li {
   align-items: center;
   justify-content: center;
   margin-bottom: 1em;
+  padding: .5em;
+  border: .1em solid lightgrey;
 }
 
 #app-heading > h1 {
@@ -110,18 +109,7 @@ h1 {
 }
 
 .number-generator > .bonusNumber {
-    /*
-    border: .1em solid red;
-    border-radius: 1em;
-    padding: .1em;
-    background-color: white;
-    */
     color: red;
-}
-
-.lotto-container {
-    padding: .5em;
-    border: .1em solid lightgrey;
 }
 
 .btn {
@@ -139,38 +127,36 @@ h1 {
     word-spacing: .2em;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     background-color: red;
+    cursor: pointer;
 }
 
-/* GET LUCKY BUTTON */
 @media screen and (min-width: 1400px) {
  .btn:hover {
     color: black;
   }
-/* Social Lists */
+
   a:hover {
     color: white;
   }
 }
 
-/* Footer Section */
 footer {
     width: auto;
     display: flex;
     flex-direction: column;
     position: relative;
-    background: none; 
+    background: none;
 }
 
-#footer-container   {
+#footer-container {
     padding: .5em;
     color: lightgrey;
 }
 
-#info-socials    {
-    background-color: grey;
+#info-socials {
     display: grid;
     flex-direction: column;
-    background-color: none;
+    background-color: transparent;
 }
 
 #info-details {
@@ -179,22 +165,22 @@ footer {
     position: relative;
 }
 
-.socials    {
+.socials {
     display: grid;
     grid-template-columns: 1fr 1fr;
     list-style: none;
     color: lightgrey;
     gap: .5em;
-    background-color: none;
+    background-color: transparent;
 }
 
-.details    {
+.details {
     display: flex;
     list-style: none;
     justify-items: start;
     color: lightgrey;
     gap: 10px;
-    background-color: none;
+    background-color: transparent;
 }
 
 a {
@@ -202,164 +188,104 @@ a {
     color: lightgrey;
 }
 
+.info-item {
+    position: relative;
+}
 
+.info-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: lightgrey;
+    cursor: pointer;
+}
 
+.info-trigger:hover {
+    color: white;
+}
 
-/* TEST HOVER POPUP */
-    .icon2 .about-popup {
-    opacity: 6;
+.info-popup {
+    max-width: 250px;
+    background-color: rgb(255, 255, 255);
+    font-size: var(--body-font-size);
+    font-family: var(--apple-font-family);
+    padding: 1px 20px;
+    position: absolute;
+    bottom: 100px;
+    transition: all 0.25s ease;
+    opacity: 0;
+    display: none;
+    box-shadow: var(--footer-box-shadow);
+    z-index: 10;
+}
+
+.info-popup > p {
+    color: black;
+}
+
+.popup-close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+}
+
+.info-item.popup-open .info-popup {
+    display: block;
+    opacity: 1;
+}
+
+@media screen and (min-width: 900px) {
+    .info-item:hover .info-popup {
+        display: block;
+        opacity: 1;
+    }
+}
+
+.icon1 .disclaimer-popup {
+    width: 250px;
+    margin-left: -28px;
+}
+
+.icon2 .about-popup {
     width: 250px;
     margin-right: 200px;
-    display: none;
     margin-left: -109px;
-    justify-content: flex-start;
-  }
+}
 
-  .about-popup {
-    max-width: 250px;
-    background-color: rgb(255, 255, 255);
-    font-size: var(--body-font-size);
-    font-family: var(--apple-font-family);
-    padding: 1px 20px;
-    position: absolute;
-    bottom: 100px;
-    transition: all 0.25s ease;
-    opacity: 0;
-    display: none;
-    box-shadow: var(--footer-box-shadow);
-    animation: in-animation 0.25s ease;
-  }
+.icon3 .whitepaper-popup {
+    width: 250px;
+    margin-left: -160px;
+}
 
-  .about-popup > p {
-    color: black;
-  }
+span {
+    color: red;
+}
 
-/* SCREEN SIZE HOVER - POPUP */
-  @media screen and (min-width: 900px) {
-    
-    /* Disclaimer-popup */
-    .icon1:hover .disclaimer-popup {
-      display: block;
-    }
-
-    /* About Popup */
-    .icon2:hover .about-popup {
-      display: block;
-    }
-
-    /* Whitepaper-popup */
-    .icon3:hover .whitepaper-popup {
-      display: block;
-    }
-  }
-
-/*
-  .popup {
-    max-width: 250px;
-    background-color: rgb(255, 255, 255);
-    padding: 1px 20px;
-    font-family: var(--apple-font-family);
-    font-size: var(--body-font-size);
-    position: absolute;
-    bottom: 100px;
-    transition: all 0.25s ease;
-    opacity: 0;
-    display: none;
-    box-shadow: var(--footer-box-shadow);
-    animation: in-animation 0.25s ease;
-    
-  }
-*/
-
-  .popup > p {
-    color: black;
-    
-  }
-  
-  @keyframes in-animation {
-    from { opacity: 0; }
-    to   { opacity: 6; }
-  }
-
-    
-
-  /* img in about */
-  .image-container {
+.image-container {
     max-width: 200px;
     max-height: 100px;
     background-color: blueviolet;
     background: url('images/Advance_To_Go-chance-card.webp');
-  }
+}
 
-  .image-container img {
+.image-container img {
     width: 100%;
     height: 100%;
     margin-bottom: 15px;
     object-fit: contain;
-  }
+}
 
-  /*Disclaimer-popup*/
-  .icon1 .disclaimer-popup {
-    opacity: 6;
-    width: 250px;
-    margin-left: -28px;
-    justify-content: flex-start;
-  }
-  
-  .disclaimer-popup {
-    max-width: 250px;
-    background-color: rgb(255, 255, 255);
-    font-size: var(--body-font-size);
-    font-family: var(--apple-font-family);
-    padding: 1px 20px;
-    position: absolute;
-    bottom: 100px;
-    transition: all 0.25s ease;
-    opacity: 0;
-    display: none;
-    box-shadow: var(--footer-box-shadow);
-    animation: in-animation 0.25s ease;
-  }
-
-  .disclaimer-popup > p {
-    color: black;
-  }
-
-  span {
-    color: red;
-  }
-
-
-  /*Whitepaper-popup*/
-  .icon3 .whitepaper-popup {
-    opacity: 6;
-    width: 250px;
-    margin-left: -160px;
-    justify-content: flex-start;
-  }
-
-  .whitepaper-popup {
-    max-width: 250px;
-    background-color: rgb(255, 255, 255);
-    padding: 1px 20px;
-    font-family: var(--apple-font-family);
-    font-size: var(--body-font-size);
-    position: absolute;
-    bottom: 100px;
-    transition: all 0.25s ease;
-    opacity: 0;
-    display: none;
-    box-shadow: var(--footer-box-shadow);
-    animation: in-animation 0.25s ease;
-  }
-
-  .whitepaper-popup > p {
-    color: black;
-  }
-
-  /* Share and Save buttons - JS Based */
-  @media screen and (min-width: 1000px) {
-    #webshareapi:hover {
-      transform: scale(1.1);
+@media screen and (min-width: 1000px) {
+    .saveBtn:hover,
+    .shareBtn:hover {
+        transform: scale(1.1);
     }
-  }
+}

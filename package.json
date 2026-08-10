@@ -1,0 +1,11 @@
+{
+  "name": "lotto-numbers-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^5.4.19"
+  }
+}

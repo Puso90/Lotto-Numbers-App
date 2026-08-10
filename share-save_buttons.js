@@ -1,112 +1,166 @@
 
-// Fetching elements and saving as variables
 const saveBtn = document.querySelector('.saveBtn');
 const shareNum = document.querySelector('.shareBtn');
-const listContainer = document.querySelector('ul');
-const show = document.querySelector('.savedNumbers');
+const listContainer = document.querySelector('#storing ul');
+const feedbackEl = document.getElementById('feedback');
 
+const storageKey = 'lotto_app';
 
-/* -- Saving and Loading Numbers*/
+function showFeedback(message) {
+    if (!feedbackEl) return;
+    feedbackEl.textContent = message;
+    setTimeout(() => {
+        feedbackEl.textContent = '';
+    }, 3000);
+}
 
-const storageKey = "lotto_app";   // Key to reference data throughout App
+function hasLuckyNumbers() {
+    return Array.isArray(luckyNumbers) && luckyNumbers.length === 7;
+}
 
-function saveCurrentNumbers(){
-  if (localStorage.getItem(storageKey) === null){
-    // storage does not yet exist
-    localStorage.setItem(storageKey, JSON.stringify( new Object() ));
-  };
+function numbersKey(nums) {
+    return nums.join(',');
+}
 
-  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
+function isDuplicate(nums) {
+    const data = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    const key = numbersKey(nums);
+    return Object.values(data).some((saved) => numbersKey(saved) === key);
+}
 
-  const newid =  new Date().getTime();                        // create unique id value
-  data[newid] = luckyNumbers;                                 // set to our "luckyNumbers" array
-  localStorage.setItem(storageKey, JSON.stringify( data ));   // Save
-  
-  return newid;                                               // Get reference to ID
-};
+function saveCurrentNumbers() {
+    if (localStorage.getItem(storageKey) === null) {
+        localStorage.setItem(storageKey, JSON.stringify({}));
+    }
 
-function deleteNumbers(obj_id){
-  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
-  delete data[obj_id];                                        // Remove object
-  localStorage.setItem(storageKey, JSON.stringify( data ));   // Save
-};
+    const data = JSON.parse(localStorage.getItem(storageKey));
+    const newid = new Date().getTime();
+    data[newid] = luckyNumbers;
+    localStorage.setItem(storageKey, JSON.stringify(data));
 
-// Get saved numbers from localStorage and display on UI
-function loadFromStorage(){
-  if (localStorage.getItem(storageKey) === null){
-    // storage does not yet exist - do nothing
-    return;
-  };
+    return newid;
+}
 
-  const data = JSON.parse(localStorage.getItem(storageKey));  // Get our data object
+function deleteNumbers(obj_id) {
+    const data = JSON.parse(localStorage.getItem(storageKey));
+    delete data[obj_id];
+    localStorage.setItem(storageKey, JSON.stringify(data));
+}
 
-  for (const [obj_id, value] of Object.entries(data)){
-    // Create list item for each numbers array
-    const display = document.createElement('li');
-    listContainer.appendChild(display);
-    display.classList.add('savedNumbers');
-    display.innerHTML = value.join(' ,  ');
+function formatNumbers(nums) {
+    return nums.join(' ,  ');
+}
 
-    // Method to remove saved luckyNumbers
-    display.addEventListener('click', () => {
+function createSavedListItem(nums, obj_id) {
+    const saved = document.createElement('li');
+    saved.classList.add('savedNumbers');
+    saved.textContent = formatNumbers(nums);
 
-      listContainer.removeChild(display);
-      deleteNumbers(obj_id);
-
+    saved.addEventListener('click', () => {
+        listContainer.removeChild(saved);
+        deleteNumbers(obj_id);
     });
-    
-  };
-};
 
-loadFromStorage();    // Make sure this function is only called after DOM loaded
+    listContainer.appendChild(saved);
+    return saved;
+}
 
-// Save Button, saves the current number generated
+function loadFromStorage() {
+    if (localStorage.getItem(storageKey) === null) {
+        return;
+    }
+
+    const data = JSON.parse(localStorage.getItem(storageKey));
+
+    for (const [obj_id, value] of Object.entries(data)) {
+        createSavedListItem(value, obj_id);
+    }
+}
+
+loadFromStorage();
+
 saveBtn.addEventListener('click', () => {
+    if (!hasLuckyNumbers()) {
+        showFeedback('Generate numbers first with GET LUCKY!');
+        return;
+    }
 
-  const obj_id = saveCurrentNumbers();   // Save to localStorage
+    if (isDuplicate(luckyNumbers)) {
+        showFeedback('These numbers are already saved.');
+        return;
+    }
 
-  // Add to display
-  const saved = document.createElement('li');      
-  listContainer.appendChild(saved); 
-  saved.classList.add('savedNumbers')
-  saved.innerHTML = luckyNumbers.join(' ,  ');
-
-  // Method to remove newly created luckyNumbers
-  saved.addEventListener('click', () => {
-  
-    listContainer.removeChild(saved);
-    deleteNumbers(obj_id);
-    
-  });
-
-  console.log(`saveing...`); // save icon works
+    const obj_id = saveCurrentNumbers();
+    createSavedListItem(luckyNumbers, obj_id);
+    showFeedback('Numbers saved.');
 });
 
+shareNum.addEventListener('click', async () => {
+    const shareText = hasLuckyNumbers()
+        ? `My lucky lotto numbers: ${formatNumbers(luckyNumbers)}`
+        : 'Look up lucky lotto numbers, Boom.. Enjoy your luck!';
 
-
-/*______ SHARE BUTTON => TO THE WORLD ______*/
-
-//Listen to share icon clicks
-shareNum.addEventListener('click', () => {
-    //Share numbers or app link on web with api
-        navigator.share({
+    const shareData = {
         url: document.URL,
         title: document.title,
-        text: "Look up lucky lotto numbers, Boom.. Enjoy your luck!"
-      });
+        text: shareText,
+    };
 
-    console.log(`sharing...`);
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+            return;
+        } catch (err) {
+            if (err.name === 'AbortError') return;
+        }
+    }
+
+    const fallbackText = `${shareText}\n${document.URL}`;
+
+    if (navigator.clipboard?.writeText) {
+        try {
+            await navigator.clipboard.writeText(fallbackText);
+            showFeedback('Link copied to clipboard.');
+            return;
+        } catch {
+            // fall through to prompt
+        }
+    }
+
+    window.prompt('Copy this link to share:', fallbackText);
 });
 
+function initInfoPopups() {
+    document.querySelectorAll('.info-item').forEach((item) => {
+        const trigger = item.querySelector('.info-trigger');
+        const closeBtn = item.querySelector('.popup-close');
 
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = item.classList.contains('popup-open');
 
+            document.querySelectorAll('.info-item.popup-open').forEach((openItem) => {
+                openItem.classList.remove('popup-open');
+            });
 
-/* INFORM LISTS POPUP */
+            if (!isOpen) {
+                item.classList.add('popup-open');
+            }
+        });
 
-// Toggle visibility on click
-// NOT WORKING - ERROR!!!!!!!!
-function aboutPopUp() {
-    document.getElementsByClassName('icon, popup').style.display = 'block';
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            item.classList.remove('popup-open');
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.info-item')) {
+            document.querySelectorAll('.info-item.popup-open').forEach((item) => {
+                item.classList.remove('popup-open');
+            });
+        }
+    });
 }
-//Strange must work on this more
 
+initInfoPopups();
